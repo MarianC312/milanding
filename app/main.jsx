@@ -14,9 +14,9 @@ class Header extends React.Component{
                 <div className="container">
                     <Button id="left-menu-icon" icon="bars" innerText="" />
                     <div id="left-menu" className="left">
-                        <Button id="Inicio" icon="" innerText="Inicio" />
-                        <Button id="Proyectos" icon="" innerText="Proyectos" />
-                        <Button id="Contacto" icon="" innerText="Contacto" />
+                        <Button id="about-me" icon="" innerText="About Me" />
+                        <Button id="projects" icon="" innerText="Projects" />
+                        <Button id="contact" icon="" innerText="Contact Me" />
                     </div>
                     <div className="right">
                         <Button id="Twitter" innerText="" icon="twitter" />
