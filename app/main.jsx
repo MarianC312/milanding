@@ -1,6 +1,6 @@
 function Button(props) {
     return (
-        <button onClick={props.onClick} id={props.id}>
+        <button onClick={props.action} id={props.id}>
             <i className={"fa fa-2x fa-" + props.icon}></i> {props.innerText}
         </button>
     )
@@ -13,10 +13,8 @@ class Header extends React.Component {
         this.toggleMenu = this.toggleMenu.bind(this);
     }
 
-    toggleMenu{
-        alert("si");
-        return;
-        document.getElementById(divId).style.display = "block";
+    toggleMenu(){
+        document.getElementById("left-menu").style.display = "block";
     }
 
     render() {
