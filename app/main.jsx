@@ -1,36 +1,58 @@
-
-function Button(props){
-    return(
+function Button(props) {
+    return (
         <button id={props.id}>
             <i className={"fa fa-2x fa-" + props.icon}></i> {props.innerText}
         </button>
     )
 }
 
-class Header extends React.Component{
-    render(){
-        return(
+function toggleDisplay(divId) {
+    document.getElementById(divId).style.display = "block";
+}
+
+class Header extends React.Component {
+    render() {
+        return (
             <div className="header">
                 <div className="container">
-                    <Button id="left-menu-icon" icon="bars" innerText="" />
-                    <div id="left-menu" className="left">
-                        <Button id="about-me" icon="" innerText="About Me" />
-                        <Button id="projects" icon="" innerText="Projects" />
-                        <Button id="contact" icon="" innerText="Contact Me" />
-                    </div>
-                    <div className="right">
+                    <ul className="left">
+                        <Button onClick={toggleDisplay("left-menu")} id="left-menu-icon" icon="bars" innerText="" />
+                        <div id="left-menu">
+                            <Button id="about-me" className="right" icon="" innerText="About Me" />
+                            <Button id="projects" icon="" innerText = "Projects" />
+                            <Button id="contact" icon="" innerText="Contact Me" />
+                        </div>
+                    </ul>
+                    <ul className="right">
                         <Button id="Twitter" innerText="" icon="twitter" />
                         <Button id="Github" innerText="" icon="github" />
-                    </div>
+                    </ul>
                 </div>
             </div>
         )
     }
 }
 
-class Main extends React.Component{
-    render(){
-        return(
+class Body extends React.Component {
+    render() {
+        return (
+            <div className="body">
+                <div className="container" id="about">
+                    
+                </div>
+            </div>
+        )
+    }
+}
+
+class Main extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+    
+    render() {
+        return (
             <div>
                 <Header />
             </div>
