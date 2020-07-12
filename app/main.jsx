@@ -1,22 +1,30 @@
 function Button(props) {
     return (
-        <button id={props.id}>
+        <button onClick={props.onClick} id={props.id}>
             <i className={"fa fa-2x fa-" + props.icon}></i> {props.innerText}
         </button>
     )
 }
 
-function toggleDisplay(divId) {
-    document.getElementById(divId).style.display = "block";
-}
-
 class Header extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {}
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+
+    toggleMenu{
+        alert("si");
+        return;
+        document.getElementById(divId).style.display = "block";
+    }
+
     render() {
         return (
             <div className="header">
                 <div className="container">
                     <ul className="left">
-                        <Button onClick={toggleDisplay("left-menu")} id="left-menu-icon" icon="bars" innerText="" />
+                        <Button action={this.toggleMenu} id="left-menu-icon" icon="bars" innerText="" />
                         <div id="left-menu">
                             <Button id="about-me" className="right" icon="" innerText="About Me" />
                             <Button id="projects" icon="" innerText = "Projects" />

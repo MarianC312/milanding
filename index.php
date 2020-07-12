@@ -1,6 +1,13 @@
  <!DOCTYPE html>
 <html lang="en">
+<?php
+    const HOST = "localhost", USERNAME = "root", PASSWORD = "", DB = "milanding";
 
+    $db = new mysqli(HOST, USERNAME, PASSWORD, DB);
+    $data = $db->prepare("SELECT * FROM data");
+    //$result = $data->fetch(PDO::FETCH_ASSOC);
+    //print_r($result);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
