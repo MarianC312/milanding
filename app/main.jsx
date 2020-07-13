@@ -33,7 +33,6 @@ class Header extends React.Component {
     }
 
     render() {
-        console.log(this.state.toggleIcon);
         return (
             <div className="header">
                 <div className="container">
