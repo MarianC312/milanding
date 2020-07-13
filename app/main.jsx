@@ -14,7 +14,8 @@ class Header extends React.Component {
     }
 
     toggleMenu(){
-        document.getElementById("left-menu").style.display = "block";
+        let menu = document.getElementById("left-menu");
+        menu.style.display = (menu.offsetParent === null) ? "flex" : "none";
     }
 
     render() {
