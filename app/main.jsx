@@ -1,29 +1,44 @@
-function Button(props) {
-    return (
-        <button onClick={props.action} id={props.id}>
-            <i className={"fa fa-2x fa-" + props.icon}></i> {props.innerText}
-        </button>
-    )
+class Button extends React.Component{
+    render(){
+        return (
+            <button onClick={this.props.action} id={this.props.id}>
+                <i className={"fa fa-2x fa-" + this.props.icon}></i> {this.props.innerText}
+            </button>
+        )
+    }
 }
 
 class Header extends React.Component {
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            toggleIcon: "bars"
+        }
         this.toggleMenu = this.toggleMenu.bind(this);
     }
 
     toggleMenu(){
         let menu = document.getElementById("left-menu");
-        menu.style.display = (menu.offsetParent === null) ? "flex" : "none";
+        if(menu.offsetParent === null){
+            menu.style.display = "flex";
+            this.setState({
+                toggleIcon: "times"
+            })
+        }else{
+            menu.style.display = "none";
+            this.setState({
+                toggleIcon: "bars"
+            })
+        }
     }
 
     render() {
+        console.log(this.state.toggleIcon);
         return (
             <div className="header">
                 <div className="container">
                     <ul className="left">
-                        <Button action={this.toggleMenu} id="left-menu-icon" icon="bars" innerText="" />
+                        <Button action={this.toggleMenu} id="left-menu-icon" icon={this.state.toggleIcon} innerText="" />
                         <div id="left-menu">
                             <Button id="about-me" className="right" icon="" innerText="About Me" />
                             <Button id="projects" icon="" innerText = "Projects" />
