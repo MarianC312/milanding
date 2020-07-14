@@ -1,7 +1,7 @@
 class Button extends React.Component{
     render(){
         return (
-            <button onClick={this.props.action} id={this.props.id}>
+            <button refTo={this.props.ref} onClick={this.props.action} id={this.props.id}>
                 <i className={"fa fa-2x fa-" + this.props.icon}></i> {this.props.innerText}
             </button>
         )
@@ -15,6 +15,11 @@ class Header extends React.Component {
             toggleIcon: "bars"
         }
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.scrollToElement = this.scrollToElement.bind(this);
+    }
+
+    scrollToElement(event){
+        alert(event.target.ref)
     }
 
     toggleMenu(){
@@ -39,9 +44,9 @@ class Header extends React.Component {
                     <ul className="left">
                         <Button action={this.toggleMenu} id="left-menu-icon" icon={this.state.toggleIcon} innerText="" />
                         <div id="left-menu">
-                            <Button id="about-me" className="right" icon="" innerText="About Me" />
-                            <Button id="projects" icon="" innerText = "Projects" />
-                            <Button id="contact" icon="" innerText="Contact Me" />
+                            <Button refTo="about" action={this.scrollToElement} icon="" innerText="About Me" />
+                            <Button refTo="projects" action={this.scrollToElement} icon="" innerText = "Projects" />
+                            <Button refTo="contact" action={this.scrollToElement} icon="" innerText="Contact Me" />
                         </div>
                     </ul>
                     <ul className="right">
@@ -59,7 +64,13 @@ class Body extends React.Component {
         return (
             <div className="body">
                 <div className="container" id="about">
-                    
+                    #About
+                </div>
+                <div className="container" id="projects">
+                    #Projects
+                </div>
+                <div className="container" id="contact">
+                    #Contact Me
                 </div>
             </div>
         )
@@ -76,6 +87,7 @@ class Main extends React.Component {
         return (
             <div>
                 <Header />
+                <Body />
             </div>
         )
     }

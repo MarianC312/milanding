@@ -7,6 +7,7 @@ body{
     font-family: 'nunito', Arial, Helvetica, sans-serif !important;
     background-color: #011717;
     text-shadow: 2px 2px 4px rgba(150, 150, 150, 0.8);
+    color: #FFF;
 }
 .header{
     padding: 1rem;
@@ -52,6 +53,11 @@ body{
 .header .container button:hover{
     color: #057575;
     transition-duration: .2s;
+}
+
+.body .container{
+    padding: 1rem;
+    height: 100vh;
 }
 
 @media only screen and (max-width: 600px){
