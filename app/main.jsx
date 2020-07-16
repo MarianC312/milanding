@@ -1,7 +1,7 @@
 class Button extends React.Component{
     render(){
         return (
-            <button refTo={this.props.ref} onClick={this.props.action} id={this.props.id}>
+            <button value={this.props.value} onClick={this.props.action} id={this.props.id}>
                 <i className={"fa fa-2x fa-" + this.props.icon}></i> {this.props.innerText}
             </button>
         )
@@ -19,7 +19,8 @@ class Header extends React.Component {
     }
 
     scrollToElement(event){
-        alert(event.target.ref)
+        let elem = document.getElementById(event.target.value);
+        elem.scrollIntoView({ behavior: 'smooth'});
     }
 
     toggleMenu(){
@@ -44,9 +45,9 @@ class Header extends React.Component {
                     <ul className="left">
                         <Button action={this.toggleMenu} id="left-menu-icon" icon={this.state.toggleIcon} innerText="" />
                         <div id="left-menu">
-                            <Button refTo="about" action={this.scrollToElement} icon="" innerText="About Me" />
-                            <Button refTo="projects" action={this.scrollToElement} icon="" innerText = "Projects" />
-                            <Button refTo="contact" action={this.scrollToElement} icon="" innerText="Contact Me" />
+                            <Button value="about" action={this.scrollToElement} icon="" innerText="About Me" />
+                            <Button value="projects" action={this.scrollToElement} icon="" innerText = "Projects" />
+                            <Button value="contact" action={this.scrollToElement} icon="" innerText="Contact Me" />
                         </div>
                     </ul>
                     <ul className="right">
