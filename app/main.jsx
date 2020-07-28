@@ -12,13 +12,28 @@ class Header extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            toggleIcon: "bars"
+            toggleIcon: "bars",
+            url: []
         }
         this.toggleMenu = this.toggleMenu.bind(this);
         this.scrollToElement = this.scrollToElement.bind(this);
+        this.refIt = this.refIt.bind(this);
     }
 
-    scrollToElement(event){
+    componentWillMount(){
+        this.setState({
+            url: {
+                Github: "https://github.com/MarianC312",
+                Twitter: ""
+            }
+        });
+    }
+
+    refIt(){
+        window.location = this.state.url[event.target.id];
+    }
+
+    scrollToElement(){
         let elem = document.getElementById(event.target.value);
         elem.scrollIntoView({ behavior: 'smooth'});
     }
@@ -52,7 +67,7 @@ class Header extends React.Component {
                     </ul>
                     <ul className="right">
                         <Button id="Twitter" innerText="" icon="twitter" />
-                        <Button id="Github" innerText="" icon="github" />
+                        <Button id="Github" action={thus.goTo} innerText="" icon="github" />
                     </ul>
                 </div>
             </div>
