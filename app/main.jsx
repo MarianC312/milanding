@@ -1,9 +1,11 @@
 class Button extends React.Component{
     render(){
         return (
-            <button value={this.props.value} onClick={this.props.action} id={this.props.id}>
-                <i className={"fa fa-2x fa-" + this.props.icon}></i> {this.props.innerText}
-            </button>
+            <a href={this.props.refTo} target={this.props.target}>
+                <button value={this.props.value} onClick={this.props.action} id={this.props.id}>
+                    <i className={"fa fa-2x fa-" + this.props.icon}></i> {this.props.innerText}
+                </button>
+            </a>
         )
     }
 }
@@ -12,25 +14,10 @@ class Header extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            toggleIcon: "bars",
-            url: []
+            toggleIcon: "bars"
         }
         this.toggleMenu = this.toggleMenu.bind(this);
         this.scrollToElement = this.scrollToElement.bind(this);
-        this.refIt = this.refIt.bind(this);
-    }
-
-    componentWillMount(){
-        this.setState({
-            url: {
-                Github: "https://github.com/MarianC312",
-                Twitter: ""
-            }
-        });
-    }
-
-    refIt(){
-        window.location = this.state.url[event.target.id];
     }
 
     scrollToElement(){
@@ -60,16 +47,17 @@ class Header extends React.Component {
                     <ul className="left">
                         <Button action={this.toggleMenu} id="left-menu-icon" icon={this.state.toggleIcon} innerText="" />
                         <div id="left-menu">
-                            <Button value="about" action={this.scrollToElement} icon="" innerText="About Me" />
-                            <Button value="projects" action={this.scrollToElement} icon="" innerText = "Projects" />
-                            <Button value="contact" action={this.scrollToElement} icon="" innerText="Contact Me" />
+                            <Button value="about" refTo="#/" target="" action={this.scrollToElement} icon="" innerText="About Me" />
+                            <Button value="projects" refTo="#/" target="" action={this.scrollToElement} icon="" innerText = "Projects" />
+                            <Button value="contact" refTo="#/" target="" action={this.scrollToElement} icon="" innerText="Contact Me" />
                         </div>
                     </ul>
                     <ul className="right">
-                        <Button id="Twitter" innerText="" icon="twitter" />
-                        <Button id="Github" action={thus.goTo} innerText="" icon="github" />
+                        <Button id="Twitter" refTo={"https://twitter.com/39_TitaniuM_63"} target="_blank" innerText="" icon="twitter" />
+                        <Button id="Github" refTo={"https://github.com/MarianC312"} target="_blank" innerText="" icon="github" />
                     </ul>
                 </div>
+                <div className="bg-img"></div>
             </div>
         )
     }
